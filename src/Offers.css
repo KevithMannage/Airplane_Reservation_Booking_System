@@ -1,0 +1,45 @@
+/* Offers.css */
+.offers-container {
+    padding: 20px;
+    max-width: 90%; /* Change this to a percentage to allow dynamic resizing */
+    margin: 0 auto;
+    text-align: center; /* Center the content in the container */
+
+}
+.footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    background-color: #7a6fe0;
+    color: white;
+}
+
+.offers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the items */
+    gap: 20px;
+}
+.offer-card {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis to make cards responsive */
+    max-width: 300px; /* Limit max width to prevent items from becoming too large */
+    margin: 10px;
+}
+
+
+.offer-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}

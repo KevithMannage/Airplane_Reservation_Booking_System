@@ -1,0 +1,16 @@
+.service-card {
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .service-card img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+  

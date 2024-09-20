@@ -1,0 +1,60 @@
+/* src/components/Navbar.css */
+/* src/components/Navbar.css */
+
+.navbar-logo img {
+  width: 30px; /* Set the desired width */
+  height: 30px; /* Maintain aspect ratio */
+  max-height: 100px; /* Optional: set a max height */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif; /* Use Arial font for the entire navbar */
+    font-size: 16px; /* Default font size */
+  }
+  
+  .navbar-logo {
+    font-size: 1.5rem; /* Relative to the root font size */
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-links li a,
+  .navbar-links li button {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+  
+  .navbar-links li button {
+    background-color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem; /* Consistent with default font size */
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-links li button:hover {
+    background-color: #0056b3;
+  }
+  

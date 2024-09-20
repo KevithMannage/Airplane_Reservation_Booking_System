@@ -1,0 +1,66 @@
+/* src/TermsAndConditions.css */
+.terms {
+  background-image: url('/13.jpg'); /* Update the path to your image */
+  background-size: cover; /* Make the background image cover the entire page */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the background image */
+  min-height: 100vh; /* Ensure the background covers the viewport height */
+  display: flex; /* Center the content if needed */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+.terms-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    margin-top: 20px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  .terms-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  @media (max-width: 600px) {
+    .terms-container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+    }
+  }
+  

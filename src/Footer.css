@@ -1,0 +1,71 @@
+/* Footer.css */
+
+.footer-section {
+    background-color: #111; /* Black background */
+    padding: 60px 0; /* Adjust padding as needed */
+    color: #fff; /* White text color */
+    text-align: center; /* Center align text and content */
+    font-family: Arial, sans-serif; /* Use Arial font for the entire footer */
+    font-size: 16px; /* Default font size */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items to the start vertically */
+    gap: 20px; /* Spacing between items */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    max-width: 1200px; /* Optional: Set a max-width for better layout control */
+    margin: 0 auto; /* Center the content within the container */
+}
+
+.footer-widget {
+    margin-bottom: 0; /* Remove bottom margin for horizontal layout */
+    flex: 1; /* Allow widgets to grow equally */
+    min-width: 200px; /* Set a minimum width for each widget */
+    text-align: left; /* Align text to the left within each widget */
+}
+
+.widget-title {
+    font-size: 1.25rem; /* Use relative units for scalability */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff; /* White text color for titles */
+    border-bottom: 2px solid #d35400; /* Orange underline */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-widget ul li {
+    margin-bottom: 10px;
+}
+
+.footer-widget ul li a {
+    color: #ddd; /* Light grey color for links */
+    text-decoration: none;
+    font-size: 1rem; /* Use relative units for consistency */
+    display: flex;
+    align-items: center;
+}
+
+.footer-widget ul li a i {
+    margin-right: 8px;
+}
+
+.privacy-area {
+    background-color: #111; /* Black background */
+    padding: 15px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.privacy-area p {
+    margin: 0;
+    font-size: 0.875rem; /* Use relative units for consistency */
+    color: #ddd; /* Light grey text color */
+}

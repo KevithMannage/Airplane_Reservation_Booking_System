@@ -1,0 +1,16 @@
+/* src/styles/HomePage.css */
+.hero-section {
+    background-image: url('/4.jpg'); /* Ensure the path is correct relative to the public folder */
+    background-size: cover;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    color: white;
+    text-align: center;
+    padding: 5rem 0; /* Adjust padding as needed */
+    margin: 0; /* Remove any default margin */
+    display: flex; /* Optional: center content with flexbox */
+    align-items: center; /* Optional: vertically center content */
+    justify-content: center; /* Optional: horizontally center content */
+}
