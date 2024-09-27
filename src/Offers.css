@@ -1,45 +1,44 @@
-/* Offers.css */
-.offers-container {
-    padding: 20px;
-    max-width: 90%; /* Change this to a percentage to allow dynamic resizing */
-    margin: 0 auto;
-    text-align: center; /* Center the content in the container */
-
+.offers-background {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 20px; /* Add some padding */
 }
-.footer {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    background-color: #7a6fe0;
-    color: white;
+
+.offers-container {
+    max-width: 1200px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Center text */
 }
 
 .offers-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centers the items */
-    gap: 20px;
-}
-.offer-card {
-    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis to make cards responsive */
-    max-width: 300px; /* Limit max width to prevent items from becoming too large */
-    margin: 10px;
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
 }
 
+.offer-card {
+    background-color: white; /* White background for each card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensure images don't overflow */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.offer-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
 
 .offer-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 12px;
+    width: 100%; /* Make images responsive */
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 10px;
+.offer-card h2 {
+    margin: 15px 0; /* Margin for headings */
 }
+
+.offer-card p {
+    padding: 0 15px; /* Add padding to paragraphs */
+}
+
+

@@ -33,6 +33,7 @@ const Flights = () => {
   ];
 
   return (
+    
     <div className="flights-page">
       <header className="header">
         <h1>Aircraft Details</h1>
@@ -52,9 +53,14 @@ const Flights = () => {
             </ul>
           </div>
         ))}
+        
+
+   
       </div>
     </div>
+   
   );
+ 
 };
 
 export default Flights;

@@ -8,8 +8,10 @@ import LoginForm from './LoginForm.jsx';
 import SignUpForm from './SignUpForm.jsx';
 import ContactPage from './ContactPage.jsx';
 import About from './About.jsx';
-import Flights from './Flights.jsx';
+import Flights from './flights.jsx';
 import TermsAndConditions from './TermsAndConditions.jsx';
+import Services from './Services.jsx';
+import BookAndSearchFlight from './BookAndSearchFlight.jsx';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,8 +38,15 @@ function App() {
                         <Route path="/sign-up" element={<SignUpForm />} />
                         <Route path="/contact" element={<ContactPage />} />
                         <Route path="/about" element={<About />} />
-                        <Route path="/flights" element={<Flights />} />
                         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                        <Route path="/Services" element={<Services />} />
+                        <Route path="/Airplanes" element={<Flights />} />
+
+                        <Route path="/Flights" element={<BookAndSearchFlight />} />
+                        
+
+
+
                     </Routes>
                 </div>
                 <Footer />

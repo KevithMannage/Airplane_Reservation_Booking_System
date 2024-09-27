@@ -36,9 +36,10 @@ const Navbar = () => {
                 <ul className="navbar-links">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/flights">Flights</Link></li>
-                    <li><Link to="/offers">Services</Link></li> {/* Link to Offers page */}
+                    <li><Link to="/Services">Services</Link></li> {/* Link to Offers page */}
                     <li><Link to="/offers">Offers</Link></li> {/* Link to Offers page */}
                     <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to="/Airplanes">Airplanes</Link></li>
                     <li><Link to="/login" className="btn-login">Login</Link></li>
 
                 </ul>

@@ -10,7 +10,6 @@ const images = [
   '/1.jpg',
   '/Airline.png',
   '/3.jpg',
-  '/20.jpeg',
   '/21.jpg'
 
   
