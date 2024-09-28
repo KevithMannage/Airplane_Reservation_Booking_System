@@ -99,7 +99,7 @@ body {
   
   .featured-destinations .destination-card img {
     width: 100%; /* Ensure image fills the card width */
-    height: 400px; /* Set a fixed height for the image */
+    height: 300px; /* Set a fixed height for the image */
     object-fit: cover; /* Ensure the image covers the area without distortion */
     border-radius: 8px 8px 0 0; /* Rounded corners for the top of the card */
   }

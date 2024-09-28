@@ -28,11 +28,13 @@ const Offers = () => {
                         <img src="offers4.jpg" alt="Offer 4" />
                         <p>Book a weekend in Miami and enjoy a 15% discount on all activities!</p>
                     </div>
-                    <div className="offer-card">
-                        <h2>Luxury Cruise to the Bahamas</h2>
-                        <img src="offers5.jpg" alt="Offer 5" />
-                        <p>Experience the Bahamas on a luxury cruise with 25% off your booking!</p>
+                                        <div className="offer-card">
+                        <h2>Family Fun in Orlando</h2>
+                        <img src="offers8.jpg" alt="Offer 8" />
+                        <p>Save 20% on family tickets to theme parks in Orlando. Book now!</p>
                     </div>
+
+                    
                     <div className="offer-card">
                         <h2>Adventure Trip to Costa Rica</h2>
                         <img src="offers6.jpg" alt="Offer 6" />
@@ -44,11 +46,11 @@ const Offers = () => {
                         <p>Enjoy a romantic escape to Santorini with a complimentary dinner!</p>
                     </div>
                     <div className="offer-card">
-                        <h2>Family Fun in Orlando</h2>
-                        <img src="offers8.jpg" alt="Offer 8" />
-                        <p>Save 20% on family tickets to theme parks in Orlando. Book now!</p>
+                        <h2>Luxury Cruise to the Bahamas</h2>
+                        <img src="offers5.jpg" alt="Offer 5" />
+                        <p>Experience the Bahamas on a luxury cruise with 25% off your booking!</p>
                     </div>
-
+                    
                     <div className="offer-card">
                         <h2>Beach Resort in the Maldives</h2>
                         <img src="offers9.jpg" alt="Offer 12" />
