@@ -1,12 +1,12 @@
-/* src/ContactPage.module.css */
-
 /* General styling */
 .pageContainer {
   font-family: 'Arial', sans-serif;
   padding: 2rem;
   background: linear-gradient(to bottom right, #f0f4f8, #e0f7fa);
   min-height: 100vh;
-  background-image: url("./12.jpg");
+  background-image: url('./12.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 /* Header styling */
@@ -14,9 +14,9 @@
   text-align: center;
   background-color: #007bff;
   color: white;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 10px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -26,17 +26,27 @@
 }
 
 /* Section for contact info */
+/* Section for contact info */
 .sectionHeader {
-  background-color: #ffffff;
+  background-color: #caf5db;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally center */
+  text-align: center; /* Center text */
+}
+
+.contactItem {
+  margin-bottom: 1.5rem;
 }
 
 .contactItem h3 {
   font-size: 1.25rem;
   color: #007bff;
+  margin-bottom: 0.5rem;
 }
 
 .contactItem p {
@@ -50,12 +60,18 @@
   text-decoration: none;
 }
 
+.contactItem a:hover {
+  text-decoration: underline;
+}
+
+
 /* Contact Form */
 .formSection {
-  background-color: #ffffff;
+  background-color: #fdfcfc;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .formSection h2 {
@@ -84,13 +100,13 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease-in-out;
 }
 
 .contactForm input:focus,
 .contactForm select:focus,
 .contactForm textarea:focus {
-  border-color: #ff5722;
+  border-color: #007bff;
   outline: none;
 }
 
@@ -107,7 +123,7 @@
   cursor: pointer;
   margin-top: 1rem;
   font-size: 1.1rem;
-  transition: background 0.3s;
+  transition: background 0.3s ease-in-out;
 }
 
 .contactForm button:hover {
@@ -138,12 +154,28 @@
     padding: 1rem;
   }
 
-  .header {
-    font-size: 1.5rem;
+  .header h1 {
+    font-size: 2rem;
   }
 
   .formSection {
     padding: 1.5rem;
+  }
+
+  .contactForm input,
+  .contactForm select,
+  .contactForm textarea {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .formSection {
+    padding: 1rem;
   }
 
   .contactForm input,

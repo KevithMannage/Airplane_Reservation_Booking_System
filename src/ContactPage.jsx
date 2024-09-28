@@ -105,11 +105,7 @@ const ContactPage = () => {
             <p className={styles.charCount}>{charCount} of {charLimit} characters used</p>
           </label>
 
-          <label>
-            Captcha:
-            <div className={styles.captcha}>[Insert Captcha Here]</div>
-          </label>
-
+          
           <button type="submit" className={styles.submitButton}>Submit</button>
         </form>
       </section>
