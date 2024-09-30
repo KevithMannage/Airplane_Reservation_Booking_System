@@ -2,14 +2,18 @@
 import React, { useState, useEffect } from 'react';
 
 const images = [
-  
+  '/46.jpg',
+  '/43.jpg',
+  '/42.jpg',
+  '/45.jpg',
+  '/44.jpg',
   '/28.jpg',
   '/27.jpg',
   '/26.jpg',
   '/25.jpg',
-  '/1.jpg',
   '/Airline.png',
-  '/3.jpg',
+  '/47.jpg',
+  '/48.jpg',
   '/21.jpg'
 
   

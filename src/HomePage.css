@@ -1,6 +1,6 @@
 /* src/styles/HomePage.css */
 .hero-section {
-    background-image: url('/4.jpg'); /* Ensure the path is correct relative to the public folder */
+    background-image: url('/40.jpg'); /* Ensure the path is correct relative to the public folder */
     background-size: cover;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent repeating the image */

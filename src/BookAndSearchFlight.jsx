@@ -49,14 +49,7 @@ const BookAndSearchFlight = () => {
             value={search.checkOut}
             onChange={handleInputChange}
           />
-          <input
-            type="number"
-            name="guests"
-            placeholder="Guests"
-            value={search.guests}
-            min="1"
-            onChange={handleInputChange}
-          />
+          
           <button type="submit" className="btn">Search</button>
         </form>
       </section>
@@ -77,6 +70,19 @@ const BookAndSearchFlight = () => {
             <img src="/Switzerland.jpg" alt="Destination" />
             <h3>Switzerland</h3>
           </div>
+          <div className="destination-card">
+            <img src="/srilanka.jpg" alt="Destination" />
+            <h3>Sri Lanka</h3>
+          </div>
+          <div className="destination-card">
+            <img src="/malaysia.jpg" alt="Destination" />
+            <h3>Malaysia</h3>
+          </div>
+          <div className="destination-card">
+            <img src="/australia.jpg" alt="Destination" />
+            <h3>Australia</h3>
+          </div>
+
         </div>
       </section>
     </div>
