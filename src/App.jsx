@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import HomePage from './HomePage.jsx';
 import Offers from './Offers.jsx';
@@ -8,11 +8,12 @@ import LoginForm from './LoginForm.jsx';
 import SignUpForm from './SignUpForm.jsx';
 import ContactPage from './ContactPage.jsx';
 import About from './About.jsx';
-import Flights from './flights.jsx';
+import Flights from './Flights.jsx';
 import TermsAndConditions from './TermsAndConditions.jsx';
 import Services from './Services.jsx';
 import BookAndSearchFlight from './BookAndSearchFlight.jsx';
 import BookingPage from './BookingPage.jsx';
+
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -25,6 +26,8 @@ function App() {
     const handleLogout = () => {
         setIsAuthenticated(false);
     };
+
+    // Fetch flight data in useEffect
 
     return (
         <Router>
@@ -42,12 +45,7 @@ function App() {
                         <Route path="/Services" element={<Services />} />
                         <Route path="/Airplanes" element={<Flights />} />
                         <Route path="/customer/ViewFlights" element={<BookingPage />} />
-
                         <Route path="/Flights" element={<BookAndSearchFlight />} />
-                        
-
-
-
                     </Routes>
                 </div>
                 <Footer />

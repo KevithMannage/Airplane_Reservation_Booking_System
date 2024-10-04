@@ -10,7 +10,6 @@ const HomePage = () => (
 
         <div className="hero-section">
             <h1>Welcome to Our Airline</h1>
-            <FlightsSearch />
         </div>
    
     </div>
