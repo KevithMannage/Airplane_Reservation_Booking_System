@@ -9,12 +9,15 @@ const BookAndSearchFlight = () => {
     guests: 1,
   });
 
-  const [results, setResults] = useState([]); // State to hold search results
-  const [loading, setLoading] = useState(false); // State to show loading
-  const [error, setError] = useState(''); // State to hold error messages
-  const [triggerSearch, setTriggerSearch] = useState(false); // Trigger useEffect for fetching data
-  const [flightDetails, setFlightDetails] = useState(null); // State for flight details
-  const [aircraftDetails, setAircraftDetails] = useState(null); // State for aircraft details
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [triggerSearch, setTriggerSearch] = useState(false);
+  const [flightDetails, setFlightDetails] = useState(null);
+  const [selectedScheduleId, setSelectedScheduleId] = useState(null);
+  const [seats, setSeats] = useState([]); // To hold the seat numbers (e.g. ["E2", "E3"])
+  const [loadingSeats, setLoadingSeats] = useState(false);
+  const [ticketType, setTicketType] = useState('Economy');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,18 +27,17 @@ const BookAndSearchFlight = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(''); // Reset error message
-    setResults([]); // Clear previous results
-    setFlightDetails(null); // Clear flight details when a new search is initiated
-    setAircraftDetails(null); // Clear aircraft details when a new search is initiated
-    setTriggerSearch(true); // Trigger search in useEffect
+    setError('');
+    setResults([]);
+    setFlightDetails(null);
+    setSeats([]);
+    setTriggerSearch(true);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       const { source, destination, checkIn } = search;
 
-      // Input validation
       if (!source || !destination || !checkIn) {
         setError('Please fill in all fields.');
         setLoading(false);
@@ -52,12 +54,10 @@ const BookAndSearchFlight = () => {
         }
 
         const data = await response.json();
-
-        // Since the flight data is in the first element of the returned array, access it like this:
         const flightData = data[0];
 
         if (Array.isArray(flightData) && flightData.length > 0) {
-          setResults(flightData); // Store the fetched data in the results state
+          setResults(flightData);
         } else {
           setError('No flights found for the selected criteria.');
         }
@@ -70,35 +70,69 @@ const BookAndSearchFlight = () => {
 
     if (triggerSearch) {
       fetchData();
-      setTriggerSearch(false); // Reset trigger to avoid continuous fetching
+      setTriggerSearch(false);
     }
   }, [triggerSearch, search]);
 
   const handleViewDetails = async (flight) => {
     try {
-      // Fetch flight details
+      setSelectedScheduleId(flight.schedule_id);
+      setLoadingSeats(true);
+
       const flightResponse = await fetch(`http://localhost:3000/schedule/flight/${flight.schedule_id}`);
       if (!flightResponse.ok) {
         throw new Error('Failed to fetch flight details');
       }
       const flightData = await flightResponse.json();
-      setFlightDetails(flightData); // Store the detailed flight data
+      setFlightDetails(flightData);
 
-      // Fetch aircraft details using the aircraft_id
-      const aircraftResponse = await fetch(`http://localhost:3000/aircraft/${flightData.aircraft_id}`);
-      if (!aircraftResponse.ok) {
-        throw new Error('Failed to fetch aircraft details');
+      // Fetch seats
+      const seatResponse = await fetch(
+        `http://localhost:3000/booking/getseats?schedule_id=${flight.schedule_id}&ticket_type=${ticketType}`
+      );
+      if (!seatResponse.ok) {
+        throw new Error('Failed to fetch seat details');
       }
-      const aircraftData = await aircraftResponse.json();
-      setAircraftDetails(aircraftData); // Store the aircraft details
+      const seatData = await seatResponse.json();
+      setSeats(seatData); // Assuming the API gives an array of seat numbers (["E2", "E3", ...])
     } catch (error) {
-      setError('Failed to fetch flight or aircraft details.');
+      setError('Failed to fetch flight or seat details.');
+    } finally {
+      setLoadingSeats(false);
     }
+  };
+
+  useEffect(() => {
+    const fetchSeats = async () => {
+      if (selectedScheduleId) {
+        setLoadingSeats(true);
+        try {
+          const seatResponse = await fetch(
+            `http://localhost:3000/booking/getseats?schedule_id=${selectedScheduleId}&ticket_type=${ticketType}`
+          );
+          if (!seatResponse.ok) {
+            throw new Error('Failed to fetch seat details');
+          }
+          const seatData = await seatResponse.json();
+          setSeats(seatData);
+        } catch (error) {
+          setError('Failed to fetch seat details.');
+        } finally {
+          setLoadingSeats(false);
+        }
+      }
+    };
+
+    fetchSeats();
+  }, [ticketType, selectedScheduleId]);
+
+  const handleSeatClick = (seatNumber) => {
+    console.log('Selected seat:', seatNumber);
+    // Add your logic for selecting a seat (e.g., updating the backend)
   };
 
   return (
     <div className="app">
-      {/* Search Form */}
       <section className="search-form">
         <h2>Find Your Next Flight</h2>
         <form onSubmit={handleSearch}>
@@ -133,13 +167,11 @@ const BookAndSearchFlight = () => {
           />
           <button type="submit" className="btn">Search</button>
         </form>
-        {error && <p className="error">{error}</p>} {/* Display error messages */}
+        {error && <p className="error">{error}</p>}
       </section>
 
-      {/* Show loading state */}
       {loading && <p>Loading...</p>}
 
-      {/* Display search results */}
       {results.length > 0 && (
         <section className="search-results">
           <h2>Available Flights</h2>
@@ -156,7 +188,6 @@ const BookAndSearchFlight = () => {
         </section>
       )}
 
-      {/* Display flight details if available */}
       {flightDetails && (
         <section className="flight-details">
           <h2>Flight Details</h2>
@@ -167,52 +198,40 @@ const BookAndSearchFlight = () => {
           <p><strong>Economy Seats:</strong> {flightDetails.economy_seats}</p>
           <p><strong>Business Seats:</strong> {flightDetails.business_seats}</p>
           <p><strong>Platinum Seats:</strong> {flightDetails.platinum_seats}</p>
-          <p><strong>Economy Price:</strong> ${flightDetails.economy_price}</p>
-          <p><strong>Business Price:</strong> ${flightDetails.business_price}</p>
-          <p><strong>Platinum Price:</strong> ${flightDetails.platinum_price}</p>
+
+          <h3>Select Your Seat ({ticketType})</h3>
+          <select onChange={(e) => setTicketType(e.target.value)} value={ticketType}>
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+            <option value="Platinum">Platinum</option>
+          </select>
+
+          {loadingSeats ? (
+            <p>Loading seats...</p>
+          ) : (
+            <div className="seat-selection">
+              {seats.map((seatNumber, index) => (
+                <button
+                  key={index}
+                  className="seat available"
+                  onClick={() => handleSeatClick(seatNumber)}
+                  style={{
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    cursor: 'pointer',
+                    margin: '5px',
+                    padding: '10px 15px',
+                    border: 'none',
+                    borderRadius: '5px',
+                  }}
+                >
+                  {seatNumber}
+                </button>
+              ))}
+            </div>
+          )}
         </section>
       )}
-
-      {/* Display aircraft details if available */}
-      {aircraftDetails && (
-        <section className="aircraft-details">
-          <h2>Aircraft Details</h2>
-          <p><strong>Aircraft ID:</strong> {aircraftDetails.id}</p>
-          <p><strong>Aircraft Type:</strong> {aircraftDetails.type}</p>
-          {/* Add more aircraft details as needed */}
-        </section>
-      )}
-
-      {/* Featured Destinations */}
-      <section className="featured-destinations">
-        <h2>Featured Destinations</h2>
-        <div className="destinations-grid">
-          <div className="destination-card">
-            <img src="/paris.jpg" alt="Destination" />
-            <h3>Paris</h3>
-          </div>
-          <div className="destination-card">
-            <img src="/maldives.jpg" alt="Destination" />
-            <h3>Maldives</h3>
-          </div>
-          <div className="destination-card">
-            <img src="/Switzerland.jpg" alt="Destination" />
-            <h3>Switzerland</h3>
-          </div>
-          <div className="destination-card">
-            <img src="/srilanka.jpg" alt="Destination" />
-            <h3>Sri Lanka</h3>
-          </div>
-          <div className="destination-card">
-            <img src="/malaysia.jpg" alt="Destination" />
-            <h3>Malaysia</h3>
-          </div>
-          <div className="destination-card">
-            <img src="/australia.jpg" alt="Destination" />
-            <h3>Australia</h3>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
