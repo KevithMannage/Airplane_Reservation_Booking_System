@@ -12,11 +12,7 @@ const PassengerInfo = ({ scheduleId }) => {
           <input type="text" placeholder="Date of Birth" required />
           <input type="text" placeholder="Gender" required />
           <input type="text" placeholder="Passport Number" required />
-          <button type="submit" className="btn-create-booking">
-                Create Booking
-              </button>
-        
-        </form>
+            </form>
       </div>
     </div>
   );

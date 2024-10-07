@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './BookAndSearchFlight.css';
+import { useNavigate } from 'react-router-dom';
 
-const BookAndSearchFlight = () => {
+const Bookingpage2 = () => {
   const [search, setSearch] = useState({
     source: '',
     destination: '',
@@ -15,9 +16,11 @@ const BookAndSearchFlight = () => {
   const [triggerSearch, setTriggerSearch] = useState(false);
   const [flightDetails, setFlightDetails] = useState(null);
   const [selectedScheduleId, setSelectedScheduleId] = useState(null);
-  const [seats, setSeats] = useState([]); // To hold the seat numbers (e.g. ["E2", "E3"])
+  const [selectedSeat, setSelectedSeat] = useState(null); // Single selected seat
+  const [seats, setSeats] = useState([]); // To hold the seat numbers
   const [loadingSeats, setLoadingSeats] = useState(false);
   const [ticketType, setTicketType] = useState('Economy');
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,6 +34,7 @@ const BookAndSearchFlight = () => {
     setResults([]);
     setFlightDetails(null);
     setSeats([]);
+    setSelectedSeat(null); // Reset selected seat
     setTriggerSearch(true);
   };
 
@@ -127,8 +131,47 @@ const BookAndSearchFlight = () => {
   }, [ticketType, selectedScheduleId]);
 
   const handleSeatClick = (seatNumber) => {
-    console.log('Selected seat:', seatNumber);
-    // Add your logic for selecting a seat (e.g., updating the backend)
+    setSelectedSeat(seatNumber); // Only one seat can be selected
+  };
+
+  const handleProceed = () => {
+    if (!selectedScheduleId || !selectedSeat || !ticketType) {
+      alert('Please select a flight, seat, and ticket type.');
+      return;
+    }
+
+    const reservationDetails = {
+      schedule_id: selectedScheduleId,
+      ticket_type: ticketType,
+      seat_no: selectedSeat,
+    };
+
+    // Make the API call to addReservation
+    fetch('http://localhost:3000/booking/addReservation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reservationDetails),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Reservation added successfully');
+          // Redirect to SubmitPage and pass the required data
+          navigate('/submit-details', {
+            state: {
+              bookedSeatNum: selectedSeat,
+              ticketType: ticketType,
+              scheduleId: selectedScheduleId, // Add this to the state
+            },
+          });
+        } else {
+          console.error('Failed to add reservation');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (
@@ -213,16 +256,10 @@ const BookAndSearchFlight = () => {
               {seats.map((seatNumber, index) => (
                 <button
                   key={index}
-                  className="seat available"
+                  className={`seat ${selectedSeat === seatNumber ? 'selected' : 'available'}`}
                   onClick={() => handleSeatClick(seatNumber)}
                   style={{
-                    backgroundColor: '#4CAF50',
-                    color: 'white',
-                    cursor: 'pointer',
-                    margin: '5px',
-                    padding: '10px 15px',
-                    border: 'none',
-                    borderRadius: '5px',
+                    backgroundColor: selectedSeat === seatNumber ? 'red' : '#4CAF50', // Change color based on selection
                   }}
                 >
                   {seatNumber}
@@ -230,10 +267,11 @@ const BookAndSearchFlight = () => {
               ))}
             </div>
           )}
+          <button className="proceed-button" onClick={handleProceed}>Proceed to Next</button>
         </section>
       )}
     </div>
   );
 };
 
-export default BookAndSearchFlight;
+export default Bookingpage2;
