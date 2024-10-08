@@ -1,22 +1,23 @@
 /* src/styles/LoginForm.css */
 /* LoginForm.css */
 
-
-.logo{
+/* Background logo styling */
+.logo {
     background-image: url('/11.jpg');
     background-size: cover;
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
     text-align: center;
-    padding: 5rem 0; /* Adjust padding as needed */
-    margin: 0; /* Remove any default margin */
-    display: flex; /* Optional: center content with flexbox */
-    align-items: center; /* Optional: vertically center content */
-    justify-content: center; /* Optional: horizontally center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Removed extra padding for cleaner centering */
+    margin: 0;
 }
 
+/* Container for the login form */
 .login-container {
     max-width: 500px;
     margin: 0 auto;
@@ -24,40 +25,75 @@
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   
 }
 
 .login-container h2 {
     text-align: center;
+    font-size: 24px;
+    margin-bottom: 1.5rem;
 }
 
-
+/* Form layout */
 .login-container form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .login-container label {
+    width: 100%;
+    font-size: 16px;
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .login-container input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-top: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
 }
 
+/* Styling for Login button */
 .login-container button {
+    width: 100%;
     padding: 0.75rem;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
 .login-container button:hover {
-    background-color: #0056b3;
+    background-color: #c43714; /* Darker blue for hover effect */
+}
+
+/* Styling for Sign Up button */
+.signup-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the Sign Up button */
+.signup-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Disabled state for Sign Up button */
+.signup-button:disabled {
+    background-color: #c3e6cb; /* Lighter green for disabled state */
+    cursor: not-allowed; /* Show not allowed cursor for disabled button */
 }

@@ -1,5 +1,6 @@
 // src/components/LoginForm.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import './LoginForm.css'; // Import the CSS file for styling
 
 const LoginForm = () => {
@@ -7,6 +8,7 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [token, setToken] = useState(null);
+    const navigate = useNavigate(); // Initialize navigate
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -22,8 +24,6 @@ const LoginForm = () => {
             if (response.ok) {
                 const data = await response.json();
                 setToken(data.token);
-                // You can store the token in localStorage or state
-                // localStorage.setItem('token', data.token);
                 console.log('Login successful:', data);
             } else {
                 const message = await response.text();
@@ -33,6 +33,10 @@ const LoginForm = () => {
             console.error('Error logging in:', error);
             setErrorMessage('Failed to log in. Please try again.');
         }
+    };
+
+    const handleSignup = () => {
+        navigate('/signup'); // Navigate to signup page
     };
 
     return (
@@ -61,6 +65,9 @@ const LoginForm = () => {
                     </label>
                     <button type="submit">Login</button>
                 </form>
+                <button onClick={handleSignup} className="signup-button">
+                    Sign Up
+                </button> {/* Add the signup button */}
             </div>
         </div>
     );
