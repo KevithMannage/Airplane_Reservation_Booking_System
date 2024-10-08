@@ -15,6 +15,7 @@ import BookAndSearchFlight from './BookAndSearchFlight.jsx';
 import BookingPage from './BookingPage.jsx';
 import SubmitPage from './SubmitPage';
 import SignupForm from './SignUpForm.jsx';
+import Dashboard from './Dashboard.jsx';
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -51,6 +52,8 @@ function App() {
                         <Route path="/submit-details" element={<SubmitPage />} />
                         <Route path="/login" element={<LoginForm />} />
                         <Route path="/signup" element={<SignupForm />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
+
                     </Routes>
                 </div>
                 <Footer />

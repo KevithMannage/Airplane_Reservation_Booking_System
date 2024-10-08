@@ -1,0 +1,77 @@
+.app {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .search-form {
+    margin-bottom: 20px;
+  }
+  
+  .search-results ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .flight-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .flight-item button {
+    margin-left: 10px;
+  }
+  
+  .flight-details {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .seat-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px; /* Adds space between seat buttons */
+  }
+  
+  .seat {
+    width: 80px; /* Makes the seat button bigger */
+    height: 80px; /* Keeps the button square */
+    display: flex; /* Ensures content can be centered */
+    align-items: center; /* Vertically centers text */
+    justify-content: center; /* Horizontally centers text */
+    font-size: 18px; /* Increases the font size */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .selected {
+    background-color: red;
+  }
+  
+  .available {
+    background-color: #32CD32;
+  }
+  
+  .proceed-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .proceed-btn:hover {
+    background-color: #0056b3;
+  }
+  

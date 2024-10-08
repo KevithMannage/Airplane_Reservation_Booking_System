@@ -25,6 +25,7 @@ const LoginForm = () => {
                 const data = await response.json();
                 setToken(data.token);
                 console.log('Login successful:', data);
+                navigate('/dashboard'); // Navigate to dashboard after successful login
             } else {
                 const message = await response.text();
                 setErrorMessage(message);

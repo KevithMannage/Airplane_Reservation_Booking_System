@@ -66,7 +66,7 @@ const SignupForm = () => {
     return (
         <div className="signup-container-wrapper">
             <div className="signup-container">
-                <h2>Sign Up</h2>
+                <h2>Create a new Account</h2>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                 {successMessage && <p className="success-message">{successMessage}</p>} {/* Display success message */}
 

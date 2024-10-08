@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './BookAndSearchFlight.css';
 import { useNavigate } from 'react-router-dom';
-
+import './BookingPage2.css'; // Optional: Import a CSS file for styling if needed
 const Bookingpage2 = () => {
   const [search, setSearch] = useState({
     source: '',
