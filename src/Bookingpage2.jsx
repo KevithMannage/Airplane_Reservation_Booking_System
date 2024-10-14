@@ -8,6 +8,7 @@ const Bookingpage2 = () => {
     destination: '',
     checkIn: '',
     guests: 1,
+    currentDate: new Date().toISOString().split('T')[0],
   });
 
   const [results, setResults] = useState([]);
@@ -21,6 +22,8 @@ const Bookingpage2 = () => {
   const [loadingSeats, setLoadingSeats] = useState(false);
   const [ticketType, setTicketType] = useState('Economy');
   const navigate = useNavigate(); // Hook for navigation
+  const user_id = localStorage.getItem('user_id') || null; // Retrieve user_id from local storage
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

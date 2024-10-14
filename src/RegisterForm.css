@@ -1,0 +1,63 @@
+/* src/styles/LoginForm.css */
+/* LoginForm.css */
+
+
+.logo{
+    background-image: url('/11.jpg');
+    background-size: cover;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    padding: 5rem 0; /* Adjust padding as needed */
+    margin: 0; /* Remove any default margin */
+    display: flex; /* Optional: center content with flexbox */
+    align-items: center; /* Optional: vertically center content */
+    justify-content: center; /* Optional: horizontally center content */
+}
+
+.Register-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+.Register-container h2 {
+    text-align: center;
+}
+
+
+.Register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Register-container label {
+    margin-bottom: 1rem;
+}
+
+.Register-container input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.Register-container button {
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Register-container button:hover {
+    background-color: #0056b3;
+}

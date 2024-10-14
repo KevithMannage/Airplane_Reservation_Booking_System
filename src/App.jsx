@@ -16,8 +16,14 @@ import BookingPage from './BookingPage.jsx';
 import SubmitPage from './SubmitPage';
 import SignupForm from './SignUpForm.jsx';
 import Dashboard from './Dashboard.jsx';
+import Logout from './Logout.jsx';
+import CalendarPage from './CalendarPage'; // Import your new CalendarPage
+
+
 function App() {
+      
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+
 
     const handleLogin = (username, password) => {
         if (username && password) {
@@ -30,7 +36,7 @@ function App() {
     };
 
     // Fetch flight data in useEffect
-
+      
     return (
         <Router>
             <div className="App">
@@ -53,6 +59,11 @@ function App() {
                         <Route path="/login" element={<LoginForm />} />
                         <Route path="/signup" element={<SignupForm />} />
                         <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/logout" element={<Logout />} />
+                        <Route path="/calendar" element={<CalendarPage />} /> {/* Calendar route */}
+
+                       
+
 
                     </Routes>
                 </div>
