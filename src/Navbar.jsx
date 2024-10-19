@@ -19,16 +19,17 @@ const Navbar = () => {
         'url(3.jpg)',
     ];
 
+    // Change background image every 3 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
-        }, 3000); // 30 seconds
+        }, 3000); // 3 seconds
 
         return () => clearInterval(interval);
     }, [backgroundImages.length]);
 
+    // Check if the user is logged in when the component mounts
     useEffect(() => {
-        // Check if the user is logged in
         const loggedInStatus = localStorage.getItem('isLoggedIn');
         setIsLoggedIn(loggedInStatus === 'true');
     }, []);
@@ -44,10 +45,10 @@ const Navbar = () => {
                 <ul className="navbar-links">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/flights">Flights</Link></li>
-                    <li><Link to="/Services">Services</Link></li> {/* Link to Services page */}
+                    <li><Link to="/services">Services</Link></li> {/* Link to Services page */}
                     <li><Link to="/offers">Offers</Link></li> {/* Link to Offers page */}
                     <li><Link to="/contact">Contact Us</Link></li>
-                    <li><Link to="/Airplanes">Airplanes</Link></li>
+                    <li><Link to="/airplanes">Airplanes</Link></li>
                     {/* Change Login link to Dashboard link if user is logged in */}
                     {isLoggedIn ? (
                         <li><Link to="/dashboard" className="btn-dashboard">Dashboard</Link></li>
@@ -56,7 +57,6 @@ const Navbar = () => {
                     )}
                 </ul>
                 <div className="navbar-search">
-                    <input type="text" placeholder="Search..." />
                 </div>
             </nav>
         </div>

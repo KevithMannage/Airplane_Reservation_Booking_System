@@ -1,54 +1,112 @@
+/* SubmitPage.css */
+
 .submit-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the content horizontally */
-    margin: 20px;
-    font-family: 'Arial', sans-serif; /* Set a clean font for the page */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensures the page takes the full height of the viewport */
+  background-image: url('/50.jpg'); /* Update the path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff; /* Ensures the text is readable on the background */
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+
+
+.timer{
+  font-size: 50px; /* Adjust this size as needed */
+  font-weight: bold;
+  color: #ff0000; /* You can customize the color if you'd like */
+  margin-bottom: 20px;
+  border: 2px solid rgb(230, 25, 25); /* Red border for the boxes */
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.137); /* Slight red background to make the box stand out */
+
+
+}
+.error-message, .success-message {
+  font-size: 2rem;
+  color: rgb(255, 0, 0); /* Red text for timer */
+  border: 2px solid rgb(230, 25, 25); /* Red border for the boxes */
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.137); /* Slight red background to make the box stand out */
+}
+
+/* Form container with box frame */
+.form-container {
+  width: 100%;
+  max-width: 600px; /* Adjust the width as needed */
+  background-color: rgba(127, 199, 199, 0.219); /* Semi-transparent black background */
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #0c0101; /* White border to create the frame effect */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Optional: shadow for depth */
+}
+
+form h3 {
+  margin-top: 20px;
+  color: #5f0eca;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #0c0404f8;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+button[type="submit"] {
 
   
-  button {
-    margin-top: 15px; /* Space between form fields and button */
-    padding: 12px 20px; /* Padding for button */
-    background-color: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 18px; /* Increase button font size */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  button:disabled {
-    background-color: #a1c3e0; /* Light blue for disabled button */
-    cursor: not-allowed; /* Not allowed cursor on disabled */
-  }
-  
-  /* Success and error message styling */
-  .success-message {
-    color: green;
-    font-weight: bold;
-    margin-top: 10px;
-    font-size: 18px; /* Increase success message font size */
-  }
-  
-  .error-message {
-    color: red;
-    font-weight: bold;
-    margin-top: 10px;
-    font-size: 18px; /* Increase error message font size */
-  }
-  
-  /* Add additional styling as needed */
-  .timer {
-    color: red; /* Red color for the timer */
-    font-size: 2em; /* Large font size */
-    text-align: center; /* Center the timer */
-    margin: 20px 0; /* Add some margin */
-  }
-  
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1b52ca;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+}
+
+/* Booking complete section */
+.booking-complete {
+  text-align: center;
+}
+
+.booking-complete h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.success-image {
+  width: 200px; /* Adjust this size as needed */
+  margin-top: 20px;
+}

@@ -98,7 +98,7 @@ input:focus, select:focus {
 .seat {
   width: 50px;
   height: 50px;
-  background-color: #e0e0e0;
+  background-color: #36e426;
   border: 2px solid #bdbdbd;
   border-radius: 10px;
   cursor: pointer;
@@ -169,4 +169,8 @@ input:focus, select:focus {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.booking-info{
+  font-size: 100px;
 }

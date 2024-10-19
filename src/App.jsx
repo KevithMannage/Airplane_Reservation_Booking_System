@@ -17,8 +17,7 @@ import SubmitPage from './SubmitPage';
 import SignupForm from './SignUpForm.jsx';
 import Dashboard from './Dashboard.jsx';
 import Logout from './Logout.jsx';
-import CalendarPage from './CalendarPage'; // Import your new CalendarPage
-
+import UserBookings from './userbookings.jsx';
 
 function App() {
       
@@ -60,8 +59,7 @@ function App() {
                         <Route path="/signup" element={<SignupForm />} />
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/logout" element={<Logout />} />
-                        <Route path="/calendar" element={<CalendarPage />} /> {/* Calendar route */}
-
+                        <Route path="/bookings" element={<UserBookings />} /> {/* Bookings route */}
                        
 
 

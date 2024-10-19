@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './BookAndSearchFlight.css';
 import { useNavigate } from 'react-router-dom';
-import './BookingPage2.css'; // Optional: Import a CSS file for styling if needed
+import './BookingPage2.css';
+
 const Bookingpage2 = () => {
   const [search, setSearch] = useState({
     source: '',
@@ -17,13 +18,15 @@ const Bookingpage2 = () => {
   const [triggerSearch, setTriggerSearch] = useState(false);
   const [flightDetails, setFlightDetails] = useState(null);
   const [selectedScheduleId, setSelectedScheduleId] = useState(null);
-  const [selectedSeat, setSelectedSeat] = useState(null); // Single selected seat
-  const [seats, setSeats] = useState([]); // To hold the seat numbers
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [ticketCount, setTicketCount] = useState(1);
+  const [economySeats, setEconomySeats] = useState([]);
+  const [businessSeats, setBusinessSeats] = useState([]);
+  const [platinumSeats, setPlatinumSeats] = useState([]);
   const [loadingSeats, setLoadingSeats] = useState(false);
   const [ticketType, setTicketType] = useState('Economy');
-  const navigate = useNavigate(); // Hook for navigation
-  const user_id = localStorage.getItem('user_id') || null; // Retrieve user_id from local storage
-
+  const navigate = useNavigate();
+  const user_id = localStorage.getItem('user_id') || null;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -36,8 +39,10 @@ const Bookingpage2 = () => {
     setError('');
     setResults([]);
     setFlightDetails(null);
-    setSeats([]);
-    setSelectedSeat(null); // Reset selected seat
+    setEconomySeats([]);
+    setBusinessSeats([]);
+    setPlatinumSeats([]);
+    setSelectedSeats([]);
     setTriggerSearch(true);
   };
 
@@ -93,15 +98,23 @@ const Bookingpage2 = () => {
       const flightData = await flightResponse.json();
       setFlightDetails(flightData);
 
-      // Fetch seats
-      const seatResponse = await fetch(
-        `http://localhost:3000/booking/getseats?schedule_id=${flight.schedule_id}&ticket_type=${ticketType}`
-      );
-      if (!seatResponse.ok) {
-        throw new Error('Failed to fetch seat details');
-      }
-      const seatData = await seatResponse.json();
-      setSeats(seatData); // Assuming the API gives an array of seat numbers (["E2", "E3", ...])
+      const fetchSeatsForClass = async (ticketType) => {
+        const seatResponse = await fetch(
+          `http://localhost:3000/booking/getseats?schedule_id=${flight.schedule_id}&ticket_type=${ticketType}`
+        );
+        if (!seatResponse.ok) {
+          throw new Error('Failed to fetch seat details');
+        }
+        return seatResponse.json();
+      };
+
+      const economySeats = await fetchSeatsForClass('Economy');
+      const businessSeats = await fetchSeatsForClass('Business');
+      const platinumSeats = await fetchSeatsForClass('Platinum');
+
+      setEconomySeats(economySeats);
+      setBusinessSeats(businessSeats);
+      setPlatinumSeats(platinumSeats);
     } catch (error) {
       setError('Failed to fetch flight or seat details.');
     } finally {
@@ -109,72 +122,56 @@ const Bookingpage2 = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchSeats = async () => {
-      if (selectedScheduleId) {
-        setLoadingSeats(true);
-        try {
-          const seatResponse = await fetch(
-            `http://localhost:3000/booking/getseats?schedule_id=${selectedScheduleId}&ticket_type=${ticketType}`
-          );
-          if (!seatResponse.ok) {
-            throw new Error('Failed to fetch seat details');
-          }
-          const seatData = await seatResponse.json();
-          setSeats(seatData);
-        } catch (error) {
-          setError('Failed to fetch seat details.');
-        } finally {
-          setLoadingSeats(false);
-        }
-      }
-    };
-
-    fetchSeats();
-  }, [ticketType, selectedScheduleId]);
-
   const handleSeatClick = (seatNumber) => {
-    setSelectedSeat(seatNumber); // Only one seat can be selected
+    setSelectedSeats((prevSeats) => {
+      if (prevSeats.includes(seatNumber)) {
+        return prevSeats.filter((seat) => seat !== seatNumber);
+      } else if (prevSeats.length < ticketCount) {
+        return [...prevSeats, seatNumber];
+      }
+      return prevSeats;
+    });
   };
 
-  const handleProceed = () => {
-    if (!selectedScheduleId || !selectedSeat || !ticketType) {
-      alert('Please select a flight, seat, and ticket type.');
+  const handleProceed = async () => {
+    if (!selectedScheduleId || selectedSeats.length === 0) {
+      alert('Please select a flight and seat.');
       return;
     }
 
-    const reservationDetails = {
-      schedule_id: selectedScheduleId,
-      ticket_type: ticketType,
-      seat_no: selectedSeat,
-    };
+    try {
+      for (const seat of selectedSeats) {
+        const reservationDetails = {
+          schedule_id: selectedScheduleId,
+          seat_no: seat,
+          ticket_type: ticketType,
+        };
 
-    // Make the API call to addReservation
-    fetch('http://localhost:3000/booking/addReservation', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(reservationDetails),
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log('Reservation added successfully');
-          // Redirect to SubmitPage and pass the required data
-          navigate('/submit-details', {
-            state: {
-              bookedSeatNum: selectedSeat,
-              ticketType: ticketType,
-              scheduleId: selectedScheduleId, // Add this to the state
-            },
-          });
-        } else {
-          console.error('Failed to add reservation');
+        const response = await fetch('http://localhost:3000/booking/addReservation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(reservationDetails),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add reservation for seat: ' + seat);
         }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+      }
+
+      console.log('All reservations added successfully');
+      navigate('/submit-details', {
+        state: {
+          bookedSeatNum: selectedSeats,
+          ticketType: ticketType,
+          scheduleId: selectedScheduleId,
+        },
       });
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error while making reservations: ' + error.message);
+    }
   };
 
   return (
@@ -241,36 +238,91 @@ const Bookingpage2 = () => {
           <p><strong>Source:</strong> {flightDetails.source_airport_code}</p>
           <p><strong>Destination:</strong> {flightDetails.destination_airport_code}</p>
           <p><strong>Date & Time:</strong> {new Date(flightDetails.date_time).toLocaleString()}</p>
-          <p><strong>Economy Seats:</strong> {flightDetails.economy_seats}</p>
-          <p><strong>Business Seats:</strong> {flightDetails.business_seats}</p>
-          <p><strong>Platinum Seats:</strong> {flightDetails.platinum_seats}</p>
+        
 
-          <h3>Select Your Seat ({ticketType})</h3>
-          <select onChange={(e) => setTicketType(e.target.value)} value={ticketType}>
-            <option value="Economy">Economy</option>
-            <option value="Business">Business</option>
-            <option value="Platinum">Platinum</option>
-          </select>
+    {/* Display ticket prices */}
+    <h3>Ticket Prices</h3>
+    <p><strong>Economy Price:</strong> ${flightDetails.economy_price}</p>
+    <p><strong>Business Price:</strong> ${flightDetails.business_price}</p>
+    <p><strong>Platinum Price:</strong> ${flightDetails.platinum_price}</p>
+          <h3>Select Number of Tickets</h3>
+          <input
+            type="number"
+            value={ticketCount}
+            min="1"
+            max="5"
+            onChange={(e) => setTicketCount(Number(e.target.value))}
+          />
+
+          <h1>Select Your Seat</h1>
 
           {loadingSeats ? (
-            <p>Loading seats...</p>
-          ) : (
-            <div className="seat-selection">
-              {seats.map((seatNumber, index) => (
-                <button
-                  key={index}
-                  className={`seat ${selectedSeat === seatNumber ? 'selected' : 'available'}`}
-                  onClick={() => handleSeatClick(seatNumber)}
-                  style={{
-                    backgroundColor: selectedSeat === seatNumber ? 'red' : '#4CAF50', // Change color based on selection
-                  }}
-                >
-                  {seatNumber}
-                </button>
-              ))}
+  <p>Loading seats...</p>
+) : (
+  <>
+    <div className="seat-section">
+      <h2>Economy Seats</h2>
+      {economySeats.length === 0 ? (
+        <p>No Economy seats available.</p>
+      ) : (
+        <div className="seats">
+          {economySeats.map((seat) => (
+            <div
+              key={seat}
+              className={`seat ${selectedSeats.includes(seat) ? 'selected' : ''}`}
+              onClick={() => handleSeatClick(seat)}
+            >
+              {seat}
             </div>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div className="seat-section">
+      <h2>Business Seats</h2>
+      {businessSeats.length === 0 ? (
+        <p>No Business seats available.</p>
+      ) : (
+        <div className="seats">
+          {businessSeats.map((seat) => (
+            <div
+              key={seat}
+              className={`seat ${selectedSeats.includes(seat) ? 'selected' : ''}`}
+              onClick={() => handleSeatClick(seat)}
+            >
+              {seat}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div className="seat-section">
+      <h2>Platinum Seats</h2>
+      {platinumSeats.length === 0 ? (
+        <p>No Platinum seats available.</p>
+      ) : (
+        <div className="seats">
+          {platinumSeats.map((seat) => (
+            <div
+              key={seat}
+              className={`seat ${selectedSeats.includes(seat) ? 'selected' : ''}`}
+              onClick={() => handleSeatClick(seat)}
+            >
+              {seat}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </>
+)}
+
+
+      {(economySeats.length > 0 || businessSeats.length > 0 || platinumSeats.length > 0) && (
+            <button className="proceed-btn" onClick={handleProceed}>Proceed</button>
           )}
-          <button className="proceed-button" onClick={handleProceed}>Proceed to Next</button>
         </section>
       )}
     </div>

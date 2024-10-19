@@ -1,45 +1,52 @@
 /* Dashboard container */
 .dashboard-container {
     display: flex;
-    height: 100vh;
-    background: linear-gradient(135deg, #f0f0f1, #c3cfe2); /* Background gradient */
+    background: url('/1.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensure the background image covers the entire container */
+    /* Keep the gradient overlay */
+  
 }
 
 /* Sidebar styling */
 .sidebar {
     width: 250px;
-    background-color: #9fcc22;
+    background-color: #0db8e2;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    background-image: url('/sidebar-bg.jpg'); /* Add a background image to the sidebar */
+    padding: 50px;
     background-size: cover;
     background-position: center;
 }
 
+/* Sidebar heading */
 .sidebar h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 50px;
+    margin-bottom: 60px;
     color: #fff;
     font-family: 'Arial', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* List styling */
 .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove default list styles */
+    padding: 4px;
+    margin: 0;            /* Remove default margin */
+    flex-grow: 1;        /* Allow ul to take remaining space */
 }
 
+/* List item styling */
 .sidebar ul li {
-    margin: 15px 0;
-    padding: 10px;
+    font-size: 20px;
+    margin: 20px 0;      /* Add 10px space between items */
+    padding: 20px;
     cursor: pointer;
     color: #fff;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
+
 
 .sidebar ul li:hover {
     background-color: #3376db; /* Highlighted item background on hover */
@@ -48,16 +55,18 @@
 
 /* Logout button styling */
 .logout-button {
-    background-color: #f44336;
-    border: none;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    background-color: #f44336;  /* Background color */
+    border: none;                /* No border */
+    padding: 15px 50px;         /* Increase padding for size */
+    color: white;                /* Text color */
+    font-weight: bold;           /* Bold text */
+    font-size: 18px;             /* Increase font size */
+    cursor: pointer;             /* Pointer cursor on hover */
+    margin-top: 30px;           /* Increased margin for spacing */
+    border-radius: 5px;         /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background transition */
 }
+
 
 .logout-button:hover {
     background-color: #d32f2f; /* Darker red for hover */
@@ -67,10 +76,7 @@
 .main-content {
     flex: 1;
     padding: 20px;
-    background-color: #f4f4f4;
-    background-image: url('/2.jpg'); /* Background image for the main content area */
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(244, 244, 244, 0.9); /* Slight transparency for main content */
     border-radius: 10px;
 }
 
@@ -89,36 +95,45 @@
     width: 200px;
 }
 
-/* Profile icon and text */
-.profile {
+.header {
     display: flex;
-    align-items: center;
+    justify-content: space-between; /* Space between header items */
+    align-items: center;            /* Center items vertically */
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;                  /* Use flexbox for layout */
+    align-items: center;           /* Center items vertically */
+    margin-left: auto;             /* Pushes the profile section to the right */
 }
 
 .profile p {
-    margin-right: 10px;
-    font-weight: bold;
-    color: #0c0c0c;
+    margin-right: 10px; 
+    font-weight: bold; 
+    color: #0c0c0c; 
 }
 
 .profile-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #3e79e7; /* Add a border around the profile picture */
+    border: 2px solid #3e79e7;    /* Add a border around the profile picture */
 }
 
+
+/* Booking information box */
 /* Booking information box */
 .booking-info {
-    background-color: rgb(238, 16, 16);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    background-image: url('/2.jpg'); /* Add a background image to the booking info box */
-    background-size: cover;
-    background-position: center;
-    color: rgb(177, 21, 21);
+    background-size: contain; /* Change to 'contain' to ensure the full image is visible */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    color: rgb(71, 91, 102);
 }
+
 
 .booking-info h1 {
     margin-bottom: 10px;
@@ -188,3 +203,5 @@
     background-color: #e0494c; /* Darker red on hover */
     transform: translateY(-3px); /* Button lift effect */
 }
+; /* Rounded corners for the top of the card */
+  
