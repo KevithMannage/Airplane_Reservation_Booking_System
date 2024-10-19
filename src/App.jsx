@@ -18,6 +18,7 @@ import SignupForm from './SignUpForm.jsx';
 import Dashboard from './Dashboard.jsx';
 import Logout from './Logout.jsx';
 import UserBookings from './userbookings.jsx';
+import UserDetails from './UserDetails.jsx';
 
 function App() {
       
@@ -59,7 +60,12 @@ function App() {
                         <Route path="/signup" element={<SignupForm />} />
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/logout" element={<Logout />} />
+                        <Route path="/user-details" element={<UserDetails />} />
+
                         <Route path="/bookings" element={<UserBookings />} /> {/* Bookings route */}
+
+                                                
+
                        
 
 

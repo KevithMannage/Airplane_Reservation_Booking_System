@@ -31,17 +31,11 @@ const LoginForm = () => {
                 const data = await response.json();
                 
                 // Store token and user data in local storage
-                localStorage.setItem('user_id', data.user.user_id);
                 localStorage.setItem('token', data.token);
-               localStorage.setItem('address', data.user.address);
-               localStorage.setItem('country', data.user.country);
-               localStorage.setItem('dob', data.user.dob);
                localStorage.setItem('email', data.user.email);
                localStorage.setItem('first_name', data.user.first_name);
-               localStorage.setItem('gender', data.user.gender);
                localStorage.setItem('last_name', data.user.last_name);
-                localStorage.setItem('passport_number', data.user.passport_number);
-                localStorage.setItem('state', data.user.state);
+               
                 localStorage.setItem('isLoggedIn', 'true'); // Set logged-in status
 
                 console.log('Login successful:', data);

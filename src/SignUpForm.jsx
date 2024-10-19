@@ -11,12 +11,8 @@ const SignupForm = () => {
         last_name: '',
         dob: '',
         passport_number: '',
-        flight_count: 0, // Default flight count set to 0
-        tier: '',
         gender: '',
-        address: '',
-        state: '',
-        country: ''
+        mobile_num: '',
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState(''); // Success message state
@@ -122,43 +118,14 @@ const SignupForm = () => {
                         </select>
                     </label>
                     <label>
-                        Address:
+                        Mobile Number:
                         <input
                             type="text"
-                            name="address"
-                            value={userData.address}
+                            name="mobile_num"
+                            value={userData.mobile_num}
                             onChange={handleChange}
                             required
                         />
-                    </label>
-                    <label>
-                        State:
-                        <input
-                            type="text"
-                            name="state"
-                            value={userData.state}
-                            onChange={handleChange}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Country:
-                        <input
-                            type="text"
-                            name="country"
-                            value={userData.country}
-                            onChange={handleChange}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Tier:
-                        <select name="tier" value={userData.tier} onChange={handleChange} required>
-                            <option value="">Select Tier</option>
-                            <option value="Gold">Gold</option>
-                            <option value="Frequent">Frequent</option>
-                            <option value="Guest">Guest</option>
-                        </select>
                     </label>
                     <label>
                         Email:

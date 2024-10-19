@@ -151,10 +151,9 @@ const Sidebar = ({ onLogout, onNavigate }) => (
     <li onClick={() => onNavigate('/')}><span role="img" aria-label="home">🏠</span> Home</li>
     <li onClick={() => onNavigate('/bookings')}><span role="img" aria-label="bookings">📅</span> Bookings</li>
     <li onClick={() => onNavigate('/notifications')}><span role="img" aria-label="notifications">🔔</span> Notifications</li>
-    <li onClick={() => onNavigate('/trash')}><span role="img" aria-label="trash">🗑️</span> Trash</li>
     <li onClick={() => onNavigate('/settings')}><span role="img" aria-label="settings">⚙️</span> Settings</li>
     <li onClick={() => onNavigate('/contact')}><span role="img" aria-label="contact us">✉️</span> Contact Us</li>
-
+    <li onClick={() => onNavigate('/user-details')}><span role="img" aria-label="user details">👤</span> User Details </li>
     <button onClick={onLogout} className="logout-button">🚪 Logout</button>
 </ul>
     </div>
@@ -210,7 +209,7 @@ const Dashboard = () => {
                 address: localStorage.getItem('address') || '',
                 country: localStorage.getItem('country') || '',
                 dob: localStorage.getItem('dob') || '',
-               gender: localStorage.getItem('gender') || '',
+                gender: localStorage.getItem('gender') || '',
                 passport_number: localStorage.getItem('passport_number') || '',
                 state: localStorage.getItem('state') || ''
             });
