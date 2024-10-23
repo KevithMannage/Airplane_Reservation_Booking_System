@@ -636,7 +636,7 @@ const SubmitPage = () => {
     const [error, setError] = useState('');
     const [successMessages, setSuccessMessages] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [timer, setTimer] = useState(60000); // 1 minute (60000 ms)
+    const [timer, setTimer] = useState(900); //15 minutes
     const [isBookingComplete, setIsBookingComplete] = useState(false);
     const [isTimeExpired, setIsTimeExpired] = useState(false);
 

@@ -63,7 +63,7 @@
 
 /* Expanded flight-details section */
 .flight-details {
-  background-color: #c40b0b;
+  background-color: #ecdcdc;
   padding: 40px;
   border-radius: 10px;
   margin-top: 20px;
@@ -178,3 +178,43 @@
   color: gray; /* Change text color to indicate unavailability */
   cursor: not-allowed; /* Change cursor to indicate it's not clickable */
 }
+
+
+.search-form {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative; /* Ensure the suggestions list is positioned relative to this */
+}
+
+.suggestions-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: absolute;
+  z-index: 1000;
+  width: 100%; /* Full width of the parent container */
+  top: 100%; /* Position the suggestions directly below the search input */
+  left: 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+
+.search-form {
+  position: relative;
+}
+
+
