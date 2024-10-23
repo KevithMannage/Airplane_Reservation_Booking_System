@@ -1,61 +1,78 @@
 /* Background Styling */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-size: cover;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-size: cover;
   
-  /* Container for all bookings */
-  .booking-container {
-    background: url('8.jpg') no-repeat center center fixed;
+}
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 100px; /* Increased padding for more space */
-    background-color: rgba(255, 255, 255, 0.85); /* Slight overlay for readability */
-    border-radius: 15px;
-    margin: 40px auto;
-    max-width: 1400px; /* Increased the max-width for larger screens */
-  }
-  
-  /* Styling for individual booking cards */
-  .booking-card {
+/* Container for all bookings */
+.booking-container {
+  background: url('8.jpg') no-repeat center center fixed;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 300px; /* Increased gap for spacing between cards */
+  padding: 1000px; /* Reduced padding for less empty space */
+  background-color: rgba(255, 255, 255, 0.85); /* Slight overlay for readability */
+  border-radius: 20px;
+  margin: 20px auto; /* Reduced margin to move container closer to the top */
+  max-width: 1800px; /* Increased the max-width for larger screens */
+}
 
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px; /* Increased padding for a more spacious card */
-    width: 400px; /* Increased width of each card for more details */
-    text-align: left;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Flight Number heading */
-  .booking-card h3 {
-    margin-top: 0;
-    color: #2a9d8f;
-    font-size: 1.5rem;
-  }
-  
-  /* Information paragraphs */
-  .booking-card p {
-    margin: 10px 0;
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-  
-  /* Labels inside paragraphs */
-  .booking-card p strong {
-    color: #264653;
-    font-weight: bold;
-  }
-  
-  /* Hover effect for cards */
-  .booking-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Ensure page content has some margin */
+/* Styling for individual booking cards */
+.booking-card {
+  background-color: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Increased padding for a more spacious card */
+  width: 500px; /* Width of each card */
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+/* Flight Number heading */
+.booking-card h3 {
+  margin-top: 0;
+  color: #2a9d8f;
+  font-size: 1.5rem;
+}
+
+/* Information paragraphs */
+.booking-card p {
+  margin: 15px 0; /* Adjusted margin for better spacing inside cards */
+  font-size: 1rem;
+  line-height: 1.6; /* Increased line-height for better readability */
+}
+
+/* Labels inside paragraphs */
+.booking-card p strong {
+  color: #15313b;
+  font-weight: bold;
+}
+
+/* Hover effect for cards */
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Ensure page content has some margin */
+/* UserBookings.css */
+
+/* Ensure headings are block elements and have margins */
+h2 {
+  margin: 20px 0; /* Adds space around headings */
+  text-align: left; /* Align heading text to the left */
+}
+
+/* Styles for the booking container */
+.booking-container {
+  padding: 20px; /* Optional padding for the container */
+}
+
+/* Additional styles for the no booking message */
+.no-booking-message {
+  color: #999; /* Light grey color for the message */
+  font-style: italic; /* Italicize the message */
+  margin: 20px 0; /* Adds margin above and below the message */
+}

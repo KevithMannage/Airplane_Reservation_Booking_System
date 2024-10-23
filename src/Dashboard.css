@@ -1,5 +1,6 @@
 /* Dashboard container */
 .dashboard-container {
+    font-size: 10px;
     display: flex;
     background: url('/1.jpg') no-repeat center center fixed; /* Background image */
     background-size: cover; /* Ensure the background image covers the entire container */

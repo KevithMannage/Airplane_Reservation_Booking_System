@@ -7,6 +7,13 @@ body {
 }
 
 .app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Makes sure the component takes at least the full height of the viewport */
+  padding: 20px; /* Add some padding for aesthetics */
+  background-color: #f5f5f5; /* Light background color */
   padding: 20px;
 }
 
@@ -207,4 +214,94 @@ body {
   height: 300px; /* Set a fixed height for the image */
   object-fit: cover; /* Ensure the image covers the area without distortion */
   border-radius: 8px 8px 0 0; /* Rounded corners for the top of the card */
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  position: absolute;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #f0f0f0; /* Highlight suggestion on hover */
+}
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%; /* Ensure all inputs take full width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.suggestions {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 100%; /* Ensure suggestions dropdown matches input width */
+  z-index: 1000;
+}
+
+.suggestions-container {
+  margin-top: 10px;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+.btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
 }

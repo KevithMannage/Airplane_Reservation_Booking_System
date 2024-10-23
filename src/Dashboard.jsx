@@ -142,6 +142,7 @@ export default Dashboard;
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
+import { RiH6 } from 'react-icons/ri';
 
 // Sidebar Component
 const Sidebar = ({ onLogout, onNavigate }) => (
@@ -216,10 +217,7 @@ const Dashboard = () => {
         }
 
         // Fetch booking data from an API
-        fetch('http://localhost:3000/bookings')
-            .then(response => response.json())
-            .then(data => setBookings(data))
-            .catch(error => console.error('Error fetching bookings:', error));
+       
     }, [navigate]);
 
     const handleLogout = () => {
@@ -249,14 +247,12 @@ const Dashboard = () => {
                     </div>
                 </header>
                 <div className="booking-info">
-                    <h1>Online Booking System for all service-based industries</h1>
-                    <p>
-                        <h4>
-                        Simply define your services and providers, display their availability, and manage bookings 24/7.
-                        </h4></p>
-                    <button className="book-btn" onClick={handleBooking}>Book here</button>
-                    
-                </div>
+    <h1>Online Booking System for all service-based industries</h1>
+      <h2>  Simply define your services and providers, display their availability, and manage bookings 24/7.</h2>
+    
+    <button className="book-btn" onClick={handleBooking}>Book here</button>
+</div>
+
                 <section className="featured-destinations">
         <h2>Featured Destinations</h2>
         <div className="destinations-grid">

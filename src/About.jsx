@@ -1,10 +1,18 @@
 // src/components/About.jsx
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './About.css'; // Import the CSS for styling
 import WhyWeAreBest from './WhyWeAreBest';
 
 const About = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Function to handle navigation when button is clicked
+  const handleBookNowClick = () => {
+    navigate('/customer/ViewFlights'); // Navigate to the booking page
+  };
+
   return (
     <div className="about-page">
       {/* Top Info Bar */}
@@ -21,7 +29,7 @@ const About = () => {
           <span role="img" aria-label="Email">📧</span>
           <p>Email Address<br /><strong>info@bairways.com</strong></p>
         </div>
-        <button className="book-now-button">BOOK NOW</button>
+        <button className="book-now-button" onClick={handleBookNowClick}>BOOK NOW</button>
       </div>
 
       {/* Header with background image */}
@@ -49,8 +57,6 @@ const About = () => {
           <div className="icon-circle">🕑</div>
           <h3>24/7 Support</h3>
           <p>24/7 online support for your questions and concerns. More than just flying!</p>
-          
-
         </div>
       </div>
       <WhyWeAreBest/>
