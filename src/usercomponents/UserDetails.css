@@ -1,0 +1,58 @@
+.user-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100%;
+    background-image: url('userdetails.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    padding: 20px; 
+  }
+  
+  .user-card {
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 40px;
+    padding: 160px; 
+    width: 900px; 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .user-card h2 {
+    color: #2a9d8f;
+    font-size: 3rem; 
+    margin: 0 0 30px;
+  }
+  
+  .user-card p {
+    font-size: 1.5rem; 
+    color: #264653;
+    margin: 25px 0;
+  }
+  
+  .user-card p strong {
+    color: #e76f51;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .user-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 10px; 
+    background-color: #e9c46a;
+    border-radius: 20px 20px 0 0;
+  }
+  

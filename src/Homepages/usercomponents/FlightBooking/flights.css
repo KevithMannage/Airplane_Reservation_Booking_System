@@ -1,0 +1,64 @@
+.flights-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.header {
+  background-color: #ff6200; 
+  color: #fff;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+.flights-page {
+  overflow: auto; 
+}
+
+
+.aircraft-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.aircraft-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.aircraft-card:hover {
+  transform: scale(1.05);
+}
+
+.aircraft-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.aircraft-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.aircraft-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.aircraft-card ul li {
+  padding: 5px 0;
+}
+
+.icon {
+  color: #ff6200; 
+  margin-right: 5px;
+}

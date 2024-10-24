@@ -1,0 +1,162 @@
+.booking-page {
+  padding: 20px;
+  background-color: #f2f2f2;
+  font-family: 'Arial', sans-serif;
+}
+
+
+.container {
+  width: 100%; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #3f51b5;
+}
+
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap; 
+}
+
+.general-info, .flight-details, .passenger-info {
+  flex: 1; 
+  min-width: 300px; 
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin: 10px; 
+}
+
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  border-color: #ff5722;
+  outline: none;
+}
+
+.seat-selection {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+.seat-class {
+  margin-bottom: 20px;
+}
+
+.seat-class h4 {
+  color: #ff5722;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 50px);
+  gap: 15px;
+  justify-content: center;
+}
+
+.seat {
+  width: 50px;
+  height: 50px;
+  background-color: #36e426;
+  border: 2px solid #bdbdbd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.seat:hover {
+  background-color: #c70909;
+  color: rgb(175, 86, 86);
+  transform: scale(1.2);
+}
+
+.seat.selected {
+  background-color: #ff5722;
+  color: white;
+  border: 2px solid #ff5722;
+}
+
+/* Button Styling */
+.btn-create-booking {
+  background-color: #ff5722;
+  color: white;
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  margin: 20px auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-create-booking:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+.passenger-info-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 30px;
+}
+
+.passenger-info {
+  flex: 1; 
+  min-width: 300px; 
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.passenger-info:hover {
+  transform: scale(1.05);
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.booking-image {
+  max-width: 100%; 
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.booking-info{
+  font-size: 100px;
+}
