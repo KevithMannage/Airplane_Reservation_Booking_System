@@ -1,4 +1,3 @@
-/* Global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -254,6 +253,26 @@ input[type="date"] {
   border-radius: 4px;
   font-size: 16px;
 }
+
+
+.suggestions-list {
+  border: 1px solid black;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1; /* Ensure suggestions appear above other elements */
+  width: 100%; /* Adjust to ensure it matches input width */
+}
+.suggestions-container {
+  position: relative;
+}
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
 
 .suggestions {
   position: absolute;
