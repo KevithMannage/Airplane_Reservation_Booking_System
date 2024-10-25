@@ -66,7 +66,7 @@ const SubmitPage = () => {
           for (let index = 0; index < ticketEntries.length; index++) {
               const entry = ticketEntries[index];
               const bookingData = {
-                email: entry.email ? entry.email : null,                  
+                  email: entry.email || null,  // Allow email to be null if not provided
                  full_name: entry.full_name,
                   gender: entry.gender,
                   dob: entry.dob,
@@ -197,7 +197,7 @@ const SubmitPage = () => {
                                                 name={key}
                                                 value={entry[key]}
                                                 onChange={(e) => handleChange(index, e)}
-                                                required
+                                                required={key !== 'email'} // Set required only for non-email fields
                                                 disabled={isTimeExpired}
                                             />
                                         </label>
@@ -245,5 +245,7 @@ const SubmitPage = () => {
 };
 
 export default SubmitPage;
+
+
 
 

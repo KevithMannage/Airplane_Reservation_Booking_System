@@ -1,7 +1,5 @@
-g */
-
 .logo {
-    background-image: url('/11.jpg'); 
+    background-image: url('/11.jpg'); /* Ensure this path is correct */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,6 +42,7 @@ g */
     color: #333;
     font-weight: bold;
 }
+
 .login-container button {
     width: 100%;
     padding: 0.75rem;
@@ -86,20 +85,6 @@ g */
 .login-container input:focus {
     border-color: #007bff; 
     outline: none;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .login-container button:hover {
