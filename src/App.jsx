@@ -4,21 +4,21 @@ import Navbar from './Navbar.jsx';
 import HomePage from './HomePage.jsx';
 import Offers from './Offers.jsx';
 import Footer from './Footer.jsx';
-import LoginForm from '../usercomponents/LoginForm.jsx';
-import SignUpForm from '../usercomponents/SignUpForm.jsx';
-import ContactPage from '../ContactPage.jsx';
+import LoginForm from './LoginForm.jsx';
+import SignUpForm from './SignUpForm.jsx';
+import ContactPage from './ContactPage.jsx';
 import About from './About.jsx';
-import Flights from '../FlightBooking/flights.jsx';
+import Flights from './Flights.jsx';
 import TermsAndConditions from './TermsAndConditions.jsx';
 import Services from './Services.jsx';
-import BookAndSearchFlight from '../FlightBooking/BookAndSearchFlight.jsx';
-import BookingPage from '../FlightBooking/BookingPage.jsx';
-import SubmitPage from '../FlightBooking/SubmitPage.jsx';
-import SignupForm from '../usercomponents/SignUpForm.jsx';
-import Dashboard from '../usercomponents/Dashboard.jsx';
-import Logout from '../Logout.jsx';
-import UserBookings from '../usercomponents/UserBookings.jsx';
-import UserDetails from '../usercomponents/UserDetails.jsx';
+import BookAndSearchFlight from './BookAndSearchFlight.jsx';
+import BookingPage from './BookingPage.jsx';
+import SubmitPage from './SubmitPage';
+import SignupForm from './SignUpForm.jsx';
+import Dashboard from './Dashboard.jsx';
+import Logout from './Logout.jsx';
+import UserBookings from './userbookings.jsx';
+import UserDetails from './UserDetails.jsx';
 
 function App() {
       
@@ -35,6 +35,7 @@ function App() {
         setIsAuthenticated(false);
     };
 
+    // Fetch flight data in useEffect
       
     return (
         <Router>
@@ -60,7 +61,14 @@ function App() {
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/user-details" element={<UserDetails />} />
+
                         <Route path="/bookings" element={<UserBookings />} /> {/* Bookings route */}
+
+                                                
+
+                       
+
+
                     </Routes>
                 </div>
                 <Footer />

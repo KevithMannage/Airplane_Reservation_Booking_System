@@ -15,6 +15,7 @@ const SubmitPage = () => {
     const [timer, setTimer] = useState(9000); // 15 minutes
     const [isBookingComplete, setIsBookingComplete] = useState(false);
     const [isTimeExpired, setIsTimeExpired] = useState(false);
+    const [completedBookings, setCompletedBookings] = useState([]);
 
     const isLoggedIn = localStorage.getItem('isLoggedIn');
 
@@ -58,6 +59,8 @@ const SubmitPage = () => {
       try {
           const successMessages = [];
           const errorMessages = [];
+          const completedBookingsData = [];
+
   
           const storedEmail = localStorage.getItem('email'); 
           for (let index = 0; index < ticketEntries.length; index++) {
@@ -115,6 +118,10 @@ const SubmitPage = () => {
                   } else {
                       const result = await response.json();
                       successMessages.push(result.message || `Booking succeeded for Passenger ${index + 1}.`);
+                      completedBookingsData.push({
+                        ...bookingData,
+                        ticketCost: result.ticketCost,
+                    })
                   }
               }
           }
@@ -126,6 +133,8 @@ const SubmitPage = () => {
               setSuccessMessages(successMessages);
               setIsBookingComplete(true);
               setTicketEntries([]);
+              setCompletedBookings(completedBookingsData);
+
           }
       } catch (error) {
           console.error('Error during booking:', error);
@@ -157,7 +166,6 @@ const SubmitPage = () => {
 
     return (
         <div className="submit-page">
-            <h1>Submit Your Details</h1>
 
             {!isBookingComplete && !isTimeExpired && (
                 <div className="timer">
@@ -212,12 +220,26 @@ const SubmitPage = () => {
                     )}
                 </div>
             )}
-
-            {isBookingComplete && (
-                <div className="booking-complete">
-                    <h2>Booking Completed Successfully!</h2>
-                </div>
-            )}
+{isBookingComplete && (
+    <div className="booking-complete">
+        <h2>Booking Completed Successfully!</h2>
+        <p>You have made {completedBookings.length} booking(s) in this session.</p>
+        
+        <h3>Booked Passengers Information:</h3>
+        <ul>
+            {completedBookings.map((booking, index) => (
+                <li key={index} className="booking-info">
+                    <p><strong>Passenger {index + 1} Details:</strong></p>
+                    <p><strong>Name:</strong> {booking.full_name}</p>
+                    <p><strong>Phone Number:</strong> {booking.mobile_num || "Not Provided"}</p>
+                    <p><strong>Email:</strong> {booking.email || "Not Provided"}</p>
+                    <p><strong>Seat Number:</strong> {booking.seat_no}</p>
+                    <p><strong>Ticket Price:</strong> ${booking.ticketCost}</p>
+                </li>
+            ))}
+        </ul>
+    </div>
+)}
         </div>
     );
 };

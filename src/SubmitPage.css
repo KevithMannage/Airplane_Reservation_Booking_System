@@ -117,3 +117,27 @@ button[type="submit"]:disabled {
   width: 200px; 
   margin-top: 20px;
 }
+
+
+.booking-info p {
+  font-size: 1.5rem; /* Increase font size in booking information */
+align-items: baseline;}
+
+
+.booking-info {
+  background-color: #ffffff; /* White background */
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  border: 1px solid #e0e0e0; /* Light border for definition */
+}
+booking-info p {
+  margin: 4px 0;
+  color: #333333; /* Dark text color for readability */
+  font-weight: 500; /* Slightly bold text */
+}
+
+.booking-info p strong {
+  color: #555555; /* Softer color for labels */
+}

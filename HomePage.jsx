@@ -1,5 +1,5 @@
 import React from 'react';
-import FlightsSearch from '../FlightBooking/FlightsSearch.jsx';
+import FlightsSearch from './FlightsSearch';
 import Offers from './Offers';
 import Navbar from './Navbar';
 import './HomePage.css';

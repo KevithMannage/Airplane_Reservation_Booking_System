@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FlightDetails from '../../FlightDetails';
+import FlightDetails from './FlightDetails';
 import BookAndSearchFlight from './Bookingpage2';
 import './booking.css';
 import bookingImage from '/airplanes.jpg';
