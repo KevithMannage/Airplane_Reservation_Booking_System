@@ -214,7 +214,15 @@ booking-info p {
 
 
 
-.timer.red {
-  color: #e74c3c; /* Red color for the timer */
-}
+/* SubmitPage.css */
 
+.time-left {
+  font-size: 3rem; /* Adjust the font size as needed */
+  color: rgb(247, 5, 5); /* Set the font color to white for contrast */
+  margin: 10px 0; /* Add some margin for spacing */
+  font-weight: bold; /* Optional: make the font bold */
+  background-color: rgba(214, 105, 105, 0.589); /* Set the background color to red */
+  padding: 10px; /* Add padding inside the box */
+  border-radius: 5px; /* Optional: add rounded corners */
+  display: inline-block; /* Keep the box only as wide as the text */
+}

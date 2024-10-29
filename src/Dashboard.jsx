@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
+import UserDetails from './UserDetails';
 
 const Sidebar = ({ onLogout, onNavigate }) => (
     <div className="sidebar">
@@ -10,7 +11,9 @@ const Sidebar = ({ onLogout, onNavigate }) => (
     <li onClick={() => onNavigate('/')}><span role="img" aria-label="home">🏠</span> Home</li>
     <li onClick={() => onNavigate('/bookings')}><span role="img" aria-label="bookings">📅</span> Bookings</li>
     <li onClick={() => onNavigate('/contact')}><span role="img" aria-label="contact us">✉️</span> Contact Us</li>
-    <li onClick={() => onNavigate('/user-details')}><span role="img" aria-label="user details">👤</span> User Details </li>
+    <li onClick={() => onNavigate('/offers')}>
+  <span role="img" aria-label="offers">🎁</span> Offers
+</li>
     <button onClick={onLogout} className="logout-button">🚪 Logout</button>
 </ul>
     </div>
@@ -96,8 +99,10 @@ const Dashboard = () => {
                 </header>
                 <div className="booking-info">
     <h1>Online Booking System for all service-based industries</h1>
-      <h2>  Simply define your services and providers, display their availability, and manage bookings 24/7.</h2>
-    
+     
+    <UserDetails/>
+
+    <h2>  Simply define your services and providers, display their availability, and manage bookings 24/7.</h2>
     <button className="book-btn" onClick={handleBooking}>Book here</button>
 </div>
 

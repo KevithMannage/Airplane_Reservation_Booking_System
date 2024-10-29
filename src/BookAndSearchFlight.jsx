@@ -20,21 +20,21 @@ const BookAndSearchFlight = () => {
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
 
   const mockSuggestions = [
-    { code: 'CGK', name: 'Jakarta' },
-    { code: 'DPS', name: 'Denpasar' },
-    { code: 'SUB', name: 'Surabaya' },
-    { code: 'KNO', name: 'Medan' },
-    { code: 'JOG', name: 'Yogyakarta' },
-    { code: 'UPG', name: 'Makassar' },
-    { code: 'BPN', name: 'Balikpapan' },
-    { code: 'BIA', name: 'Colombo' },
-    { code: 'HRI', name: 'Hambantota' },
-    { code: 'DEL', name: 'Delhi' },
-    { code: 'BOM', name: 'Mumbai' },
-    { code: 'MAA', name: 'Chennai' },
-    { code: 'SIN', name: 'Singapore' },
-    { code: 'BKK', name: 'Bangkok' },
-    { code: 'DMK', name: 'Don Mueang' },
+    { code: 'CGK', name: 'Soekarno–Hatta International Airport, Jakarta' },
+    { code: 'DPS', name: ' Ngurah Rai International Airport, Denpasar (Bali)' },
+    { code: 'SUB', name: 'Juanda International Airport, Surabaya' },
+    { code: 'KNO', name: ' Kualanamu International Airport, Medan' },
+    { code: 'JOG', name: ' Adisutjipto International Airport, Yogyakarta' },
+    { code: 'UPG', name: 'Sultan Hasanuddin International Airport, Makassar' },
+    { code: 'BPN', name: 'Sultan Aji Muhammad Sulaiman Airport, Balikpapan' },
+    { code: 'BIA', name: ' Bandaranaike International Airport, Colombo, Sri Lanka' },
+    { code: 'HRI', name: 'Mattala Rajapaksa International Airport, Hambantota, Sri Lanka' },
+    { code: 'DEL', name: ' Indira Gandhi International Airport, Delhi, India' },
+    { code: 'BOM', name: 'Chhatrapati Shivaji Maharaj International Airport, Mumbai, India' },
+    { code: 'MAA', name: ' Chennai International Airport, Chennai, India' },
+    { code: 'SIN', name: 'Singapore Changi Airport, Singapore' },
+    { code: 'BKK', name: 'Suvarnabhumi Airport, Bangkok, Thailand' },
+    { code: 'DMK', name: 'Don Mueang International Airport, Bangkok, Thailand' },
   ];
 
   const fetchSourceSuggestions = (query) => {

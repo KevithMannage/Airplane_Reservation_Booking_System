@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import './UserBookings.css'; 
 
@@ -37,46 +36,45 @@ const UserBookings = () => {
 
   return (
     <div className="booking-container">
-      <div className="booking-card">
-      <h2>Ongoing Bookings</h2>
-      </div>
-      {ongoingBookings.length > 0 ? (
-        ongoingBookings.map((booking, index) => (
-          <div key={index} className="booking-card">
-            <h3>Flight Number: {booking.flight_number}</h3>
-            <p><strong>From:</strong> {booking.from_destination}</p>
-            <p><strong>To:</strong> {booking.to_destination}</p>
-            <p><strong>Departure Time:</strong> {new Date(booking.departure_time).toLocaleString()}</p>
-            <p><strong>Arrival Time:</strong> {new Date(booking.arrival_time).toLocaleString()}</p>
-            <p><strong>Duration:</strong> {booking.duration}</p>
+      <div className="booking-section">
+        <h1>Ongoing Bookings</h1>
+        {ongoingBookings.length > 0 ? (
+          ongoingBookings.map((booking, index) => (
+            <div key={index} className="booking-card">
+              <h3>Flight Number: {booking.flight_number}</h3>
+              <p><strong>From:</strong> {booking.from_destination}</p>
+              <p><strong>To:</strong> {booking.to_destination}</p>
+              <p><strong>Departure Time:</strong> {new Date(booking.departure_time).toLocaleString()}</p>
+              <p><strong>Arrival Time:</strong> {new Date(booking.arrival_time).toLocaleString()}</p>
+              <p><strong>Duration:</strong> {booking.duration}</p>
+            </div>
+          ))
+        ) : (
+          <div className="no-booking-message">
+            <h3>No Ongoing Flights Available</h3>
           </div>
-        ))
-      ) : (
-        <div className="booking-card no-booking-message">
-          <h3>No Ongoing Flights Available</h3>
-        </div>
-      )}
+        )}
+      </div>
 
-      <div style={{ padding: '20px 0' }}></div>
-      <div className="booking-card2">
-      <div className="booking-card">
-      <h2>Past Bookings</h2>
-      </div>
-      </div>
-      {pastBookings.length > 0 ? (
-        pastBookings.map((booking, index) => (
-          <div key={index} className="booking-card">
-            <h3>Flight Number: {booking.flight_number}</h3>
-            <p><strong>From:</strong> {booking.from_destination}</p>
-            <p><strong>To:</strong> {booking.to_destination}</p>
-            <p><strong>Departure Time:</strong> {new Date(booking.departure_time).toLocaleString()}</p>
-            <p><strong>Arrival Time:</strong> {new Date(booking.arrival_time).toLocaleString()}</p>
-            <p><strong>Duration:</strong> {booking.duration}</p>
+      <div className="booking-section">
+        <h1>Past Bookings</h1>
+        {pastBookings.length > 0 ? (
+          pastBookings.map((booking, index) => (
+            <div key={index} className="booking-card">
+              <h3>Flight Number: {booking.flight_number}</h3>
+              <p><strong>From:</strong> {booking.from_destination}</p>
+              <p><strong>To:</strong> {booking.to_destination}</p>
+              <p><strong>Departure Time:</strong> {new Date(booking.departure_time).toLocaleString()}</p>
+              <p><strong>Arrival Time:</strong> {new Date(booking.arrival_time).toLocaleString()}</p>
+              <p><strong>Duration:</strong> {booking.duration}</p>
+            </div>
+          ))
+        ) : (
+          <div className="no-booking-message">
+            <h3>No Past Bookings Available</h3>
           </div>
-        ))
-      ) : (
-        <div className="no-booking-message">No past bookings available</div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

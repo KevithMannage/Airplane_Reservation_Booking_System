@@ -54,7 +54,7 @@ const Flights = () => {
       fuelCapacity: '323546.00 L',
       maxLoad: '575000.00 Kg',
       avgSpeed: '903 Kmph',
-      manufacturer: 'Boeing commercial'
+      manufacturer: 'Airbus'
     },
 
     {
@@ -64,7 +64,7 @@ const Flights = () => {
       fuelCapacity: '323546.00 L',
       maxLoad: '575000.00 Kg',
       avgSpeed: '903 Kmph',
-      manufacturer: 'Embraer'
+      manufacturer: 'Airbus'
     },
     {
       name: 'Bombardier',
@@ -73,7 +73,7 @@ const Flights = () => {
       fuelCapacity: '323546.00 L',
       maxLoad: '575000.00 Kg',
       avgSpeed: '903 Kmph',
-      manufacturer: 'Bombardier company'
+      manufacturer: 'Airbus'
     }
     
     

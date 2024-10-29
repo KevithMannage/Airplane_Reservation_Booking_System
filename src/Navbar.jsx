@@ -45,7 +45,6 @@ const Navbar = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/flights">Flights</Link></li>
                     <li><Link to="/services">Services</Link></li> 
-                    <li><Link to="/offers">Offers</Link></li> 
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li><Link to="/airplanes">Airplanes</Link></li>
                     <li><Link to="/customer/ViewFlights">Booking</Link></li>
